@@ -1,0 +1,3 @@
+<resources>
+    <item type="layout" name="activity_event_list">@layout/activity_event_twopane</item>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LiveTiming</string>
+    <string name="title_event_detail">Event Timing</string>
+    <string name="title_event_list">LiveTiming</string>
+
+</resources>
