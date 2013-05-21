@@ -16,23 +16,50 @@ import org.jsoup.select.Elements;
 
 public class Scraper {
 	
+	
+	private static ArrayList<String> sortData( ArrayList<String> data)
+	{
+		ArrayList<String> sortedData = new ArrayList<String>();
+		
+		String newDataString = "";
+		
+		int i = 0;
+		for(String s : data)
+		{
+			if (i < 11)
+			{
+				newDataString += " " + s;
+			    i++;
+			}
+			else
+			{
+				sortedData.add(newDataString);
+				newDataString = "";
+				i = 0;
+			}
+		}
+		return sortedData;
+	}
 
 	public static ArrayList<String> getData() throws IOException {
 		// TODO Auto-generated method stub
 		
 		Document doc = null;
 		
-		ArrayList<String> mylistLinks = new ArrayList<String>();
+//		ArrayList<String> mylistLinks = new ArrayList<String>();
 		ArrayList<String> mylist = new ArrayList<String>();
 		
 //		String url2 = "http://livetiming.co.nz/wsTriSeries.aspx";
 //		String url = "http://livetiming.co.nz/data/TriSeries-125237154222.htm?v=1355624095668";
+				
 		String baseUrl = "http://livetiming.co.nz";
 		String url = baseUrl + "/TimeDatadat.aspx?td=TriSeries";
 		
+		url = baseUrl + "/TimeDatadat.aspx?td=NZSBK";
+		
 		
 		try {
-			System.out.println("get");
+//			System.out.println("get");
 			doc = Jsoup.connect(url).get();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -78,16 +105,17 @@ public class Scraper {
 			Elements tds = tr.select("td");
 			Iterator tdIter = tds.iterator();
 	
-			Boolean odd = false;
+//			Boolean odd = false;
 			while (tdIter.hasNext()) {
 				Element td = (Element)tdIter.next();
 				String country = td.text();
 				mylist.add(country);
-				System.out.println("[" + country + "]");
-				String link = td.select("a[href]").attr("abs:href");
-				mylistLinks.add(link);
+//				System.out.println("[" + country + "]");
+//				String link = td.select("a[href]").attr("abs:href");
+//				mylistLinks.add(link);
 			}
 		}
+		mylist = sortData(mylist);
 		return mylist;
 	
 //		System.out.println(doc.title());

@@ -2,6 +2,7 @@ package co.nz.aberg.livetiming;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import co.nz.aberg.livetiming.dummy.DummyContent;
 import co.nz.aberg.livetiming.model.DownloadData;
@@ -15,6 +16,7 @@ import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 public class EventListFragment extends ListFragment {
@@ -63,6 +65,23 @@ public class EventListFragment extends ListFragment {
 			   
 			   // Bind the array adapter to the listview.
 			   setListAdapter(aa);
+			   
+			   
+//			   ArrayList<HashMap<String, String>> mylist = new ArrayList<HashMap<String, String>>();
+//			   
+//			   HashMap<String, String> map = new HashMap<String, String>();
+//			   map = new HashMap<String, String>();          
+//			   map.put("id", "2");
+//			   map.put("name", "sally");
+//			   mylist.add(map);
+//			   			   
+//			   
+//			   SimpleAdapter mSchedule = new SimpleAdapter(this, mylist, R.layout.listrow,
+//			            new String[] {"id", "name"}, new int[] {0, 1});
+//			   
+//			   setListAdapter(mSchedule);
+			   
+			   
 		   }
 	}
 
